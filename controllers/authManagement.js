@@ -9,7 +9,7 @@ var login_check = function (username,callback) {
             callback(null,list_of_users[i]);
         }
     }
-    callback(null,'');
+    callback('usernotfound',null);
 }
 
 exports.login = login_check;
