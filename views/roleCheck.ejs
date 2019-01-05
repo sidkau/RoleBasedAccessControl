@@ -1,0 +1,29 @@
+<h1>Hi </h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+ user_details=JSON.parse('<%-JSON.stringify(user_details) %>');
+ user_rights=JSON.parse('<%-JSON.stringify(user_rights) %>');
+</script>
+<h1> Hi <%= user_details.username %> </h1>
+<% if((user_rights.length==3)) { %>
+<textarea rows="4" cols="50">
+<%-include('resource.ejs') %>
+</textarea>
+<button id='delete'> Delete </button>
+<%} else if((user_rights).length==2){ %>
+
+<textarea rows="4" cols="50">
+<%-include('resource.ejs') %>
+</textarea>
+<%} else(user_rights.length==1) {%>
+<p><%-include('resource.ejs') %>
+</p>
+<%}%>
+
+<script>
+if(s.role!='admin') {
+    $('#delete').addClass('hide');
+}
+
+</script>
